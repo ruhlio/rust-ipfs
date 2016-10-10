@@ -1,0 +1,8 @@
+[package]
+description = "IPFS"
+name = "ipfs"
+version = "0.0.1"
+
+[dependencies]
+blockservice = { path = "blockservice" }
+merkledag = { path = "merkledag" }

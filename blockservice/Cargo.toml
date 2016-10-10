@@ -1,0 +1,6 @@
+[package]
+name = "blockservice"
+version = "0.1.0"
+authors = ["Jeff R <ruhlio@users.noreply.github.com>"]
+
+[dependencies]

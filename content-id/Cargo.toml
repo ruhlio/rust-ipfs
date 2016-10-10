@@ -1,0 +1,7 @@
+[package]
+name = "content-id"
+version = "0.1.0"
+authors = ["Jeff R <ruhlio@users.noreply.github.com>"]
+
+[dependencies]
+multihash = { git = "https://github.com/multiformats/rust-multihash.git" }

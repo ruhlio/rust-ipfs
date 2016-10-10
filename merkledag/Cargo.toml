@@ -1,0 +1,8 @@
+[package]
+name = "merkledag"
+version = "0.1.0"
+authors = ["Jeff R <ruhlio@users.noreply.github.com>"]
+
+[dependencies]
+protobuf = "*"
+multihash = { git = "https://github.com/multiformats/rust-multihash.git" }

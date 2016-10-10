@@ -1,0 +1,9 @@
+[package]
+name = "multibase"
+version = "0.1.0"
+authors = ["Jeff R <ruhlio@users.noreply.github.com>"]
+
+[dependencies]
+num = "*"
+lazy_static = "*"
+rustc-serialize = "*"
