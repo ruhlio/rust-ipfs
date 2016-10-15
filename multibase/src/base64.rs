@@ -1,6 +1,6 @@
 use rustc_serialize::base64::{ToBase64, FromBase64,
                               Config, Newline, CharacterSet};
-use base::{Base, Error, Result};
+use base::{Base, MultibaseError, Result};
 
 const CONFIG: Config = Config {
     char_set: CharacterSet::Standard,
@@ -25,7 +25,7 @@ impl Base for Base64 {
     fn decode(encoded: &str) -> Result<Vec<u8>> {
         match encoded.from_base64() {
             Ok(raw) => Ok(raw),
-            Err(_) => Err(Error::InvalidEncoding)
+            Err(_) => Err(MultibaseError::InvalidEncoding)
         }
     }
 }
@@ -39,7 +39,7 @@ impl Base for UrlSafeBase64 {
     fn decode(encoded: &str) -> Result<Vec<u8>> {
         match encoded.from_base64() {
             Ok(raw) => Ok(raw),
-            Err(_) => Err(Error::InvalidEncoding)
+            Err(_) => Err(MultibaseError::InvalidEncoding)
         }
     }
 }

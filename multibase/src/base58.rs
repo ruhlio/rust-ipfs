@@ -2,7 +2,7 @@ use num::{Zero, One};
 use num::traits::ToPrimitive;
 use num::bigint::{BigUint, ToBigUint};
 
-use base::{Base, Error, Result};
+use base::{Base, MultibaseError, Result};
 
 pub struct BitcoinBase58;
 pub struct FlickrBase58;
@@ -67,7 +67,7 @@ fn decode(encoded: &str, alphabet: &[u8]) -> Result<Vec<u8>> {
             Some(index) => {
                 answer = answer + (index.to_biguint().unwrap() * &position);
             },
-            None => return Err(Error::InvalidEncoding),
+            None => return Err(MultibaseError::InvalidEncoding),
         }
 
         position = &position * &*RADIX;
@@ -95,7 +95,7 @@ fn index_of(haystack: &[u8], needle: u8) -> Option<usize> {
 #[cfg(test)]
 mod tests {
     use rustc_serialize::hex::FromHex;
-    use super::super::base::{Base, Error};
+    use super::super::base::{Base, MultibaseError};
     use super::{FlickrBase58, BitcoinBase58};
 
     #[test]
@@ -131,6 +131,6 @@ mod tests {
 
         assert_eq!(
             BitcoinBase58::decode("OOOOOOOH YEAH!"),
-            Err(Error::InvalidEncoding));
+            Err(MultibaseError::InvalidEncoding));
     }
 }

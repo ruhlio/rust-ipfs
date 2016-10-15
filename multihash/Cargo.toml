@@ -1,0 +1,10 @@
+[package]
+name = "multihash"
+version = "0.1.0"
+authors = []
+
+[dependencies]
+rust-crypto = "*"
+
+[dev-dependencies]
+rustc-serialize = "*"
